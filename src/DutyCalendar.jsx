@@ -58,14 +58,6 @@ export default function DutyCalendar({ startDate, endDate, don, value, onChange,
     if (result.prefs !== prefs) onChange(result.prefs);
   }
 
-  useEffect(() => {
-    const fetchPref = async () => {
-      const { data, error } = await supabase.from('preferences').select().eq('don_id', don.id);
-      onChange(data);
-    }
-    fetchPref();
-  }, [])
-
   function clearMode() {
     onChange(prefs.filter((p) => p.kind !== mode));
     setMessage(mode === 'rank' ? 'Cleared your picks.' : 'Cleared your "can\'t work" days.');

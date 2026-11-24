@@ -167,7 +167,7 @@ export function analyzeSession({ startDate, endDate, dons = [], preferences = []
     const sumMax = sum('max_total');
     const sumMinWk = sum('min_weekend');
     const sumMaxWk = sum('max_weekend');
-    console.log(days.length, sumMin);
+    //console.log(days.length, sumMin);
     const extras = days.length - sumMin;
     const volunteersWithRoom = hd.filter((d) => volunteers.has(d.id) && d.max_total > d.min_total);
     let dataProblem = false;

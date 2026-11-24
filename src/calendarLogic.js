@@ -154,7 +154,7 @@ export function toggleDay(prefs, iso, mode, ctx, isAdmin = false) {
     // New pick (or a "can't work" day switched to a pick) goes to the end.
     list = list.filter((p) => p.date !== iso);
     list.push({ date: iso, kind: 'rank', rank: rankCount + 1 });
-  console.log("tap2");
+    //console.log("tap2");
     return {
       prefs: renumber(list),
       message: existing?.kind === 'no' ? `Moved ${formatDay(iso)} from "can't work" to your picks.` : null,
