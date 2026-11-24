@@ -28,6 +28,7 @@ function DonApp() {
   const [prefs, setPrefs] = useState([]);
   const [volunteer, setVolunteer] = useState(false);
   const [prefSaving, setPrefSaving] = useState(false);
+  const [prefSaved, setPrefSaved] = useState(false);
 
   async function handleClaim(donId) {
     setClaiming(true);
@@ -71,8 +72,10 @@ function DonApp() {
         p_prefs: prefs,          // [{ date, kind, rank }], straight from DutyCalendar
         p_volunteer: volunteer,  // the "willing to take an extra shift" checkbox
       });
+      setPrefSaved(true);
       if (error) throw error;
     } catch (err) {
+      setPrefSaved(false);
       alert(`Could not save preferences: ${err.message}`);
       // The function's messages are written for users, e.g. "Please rank at least 3 days"
     } finally {
@@ -313,6 +316,8 @@ function DonApp() {
               prefSaving={prefSaving}
               handleSavePref={handleSavePref}
               volunteer={volunteer}
+              prefSaved={prefSaved}
+              setPrefSaved = {setPrefSaved}
               setVolunteer={setVolunteer}
               
             />

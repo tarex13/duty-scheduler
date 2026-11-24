@@ -34,10 +34,9 @@ const ROSE = '#F87171';
  *   value               preferences array, same shape submit_preferences expects
  *   onChange(next)      called with the new preferences array
  */
-export default function DutyCalendar({ startDate, endDate, don, value, onChange, prefSaving, handleSavePref, volunteer, setVolunteer, isAdmin = false }) {
+export default function DutyCalendar({ startDate, endDate, don, value, onChange, prefSaving, handleSavePref, volunteer, setVolunteer, prefSaved=false, setPrefSaved=()=>{}, isAdmin = false }) {
   const [mode, setMode] = useState('rank'); // 'rank' | 'no'
   const [message, setMessage] = useState('');
-  const [prefSaved, setPrefSaved] = useState(false);
 
   const ctx = useMemo(() => ({ startDate, endDate, don }), [startDate, endDate, don]);
   const months = useMemo(() => buildMonths(startDate, endDate), [startDate, endDate]);
