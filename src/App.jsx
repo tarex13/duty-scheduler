@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 import { ensureSession, supabase } from './lib/supabase'
 import DutyCalendar from './DutyCalendar'
@@ -66,7 +63,7 @@ function DonApp() {
 
   const handleSavePref = async () => {
     if (!myDon?.id || prefSaving) return; // ignore double taps while saving
-
+    if(sessionDBRealtime?.stage == 4) {alert("Submissions Paused"); return}
     setPrefSaving(true);
     try {
       const { error } = await supabase.rpc('submit_preferences', {
@@ -317,6 +314,7 @@ function DonApp() {
               handleSavePref={handleSavePref}
               volunteer={volunteer}
               setVolunteer={setVolunteer}
+              
             />
           </div>
         )}

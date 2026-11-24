@@ -78,11 +78,11 @@ export default function DutyCalendar({ startDate, endDate, don, value, onChange,
     <div className="relative isolate w-full max-w-xl mx-auto h-full">
       {/* Soft color blobs behind the glass so the blur has something to show */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[2rem]">
-        <div className="absolute -top-16 -left-10 h-56 w-56 rounded-full blur-3xl opacity-40"
+        <div className="absolute -top-16 -left-10 h-56 w-56 rounded-full blur-3xl opacity-5"
           style={{ background: TEAL_DEEP }} />
-        <div className="absolute -bottom-20 -right-10 h-64 w-64 rounded-full blur-3xl opacity-30"
+        <div className="absolute -bottom-20 -right-10 h-64 w-64 rounded-full blur-3xl opacity-15"
           style={{ background: '#0F3460' }} />
-        <div className="absolute top-1/3 right-1/4 h-32 w-32 rounded-full blur-3xl opacity-20"
+        <div className="absolute top-1/3 right-1/4 h-32 w-32 rounded-full blur-3xl opacity-5"
           style={{ background: ROSE }} />
       </div>
 
@@ -190,7 +190,7 @@ export default function DutyCalendar({ startDate, endDate, don, value, onChange,
             Clear {mode === 'rank' ? 'picks' : "can't work"}
           </button>
 
-          <div className='flex justify-between w-full p-2'>
+          <div className='flex justify-between w-full p-2 gap-3'>
             <div className='flex items-center gap-3'>
               <span>Are you willing to take an Extra Shift?</span>
               <input
